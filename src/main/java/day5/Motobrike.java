@@ -10,33 +10,16 @@ public class Motobrike {
     private String color;
     private int yearRelase;
 
-    public void setModel(String model) {
+    public Motobrike(String model, String color, int yearRelase) {
         this.model = model;
-    }
-
-    public void setColor(String color) {
         this.color = color;
-    }
-
-    public void setYearRelase(int yearRelase) {
         this.yearRelase = yearRelase;
-    }
-
-    public String getModel() {
-        return model;
-    }
-
-    public String getColor() {
-        return color;
-    }
-
-    public int getYearRelase() {
-        return yearRelase;
     }
 
     public void getInfo(){
         System.out.println("Из класса Мотоцикл " + model + "," + color + "," + yearRelase);
     }
+
 }
 
 

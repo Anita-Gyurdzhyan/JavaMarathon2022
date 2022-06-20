@@ -18,6 +18,10 @@ public class Task1 {
         while (true) {
             String city = scanner.nextLine();
             String str = "Stop";
+
+            if (str.equals(city))
+                break;
+
             switch (city) {
                 case "Москва":
                 case "Владивосток":
@@ -43,17 +47,14 @@ public class Task1 {
                     System.out.println("Германия");
                     break;
 
-                case "Stop":
-                    break;
+
                 default:
                     System.out.println("Неизвестная страна");
 
             }
-            if (str.equals(city)){
-                break;
+
             }
 
         }
-
     }
-}
+

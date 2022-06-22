@@ -14,8 +14,9 @@ import java.util.Scanner;
 public class Task1 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Введите название города");
+
         while (true) {
+            System.out.println("Введите название города");
             String city = scanner.nextLine();
             String str = "Stop";
 
@@ -50,6 +51,7 @@ public class Task1 {
 
                 default:
                     System.out.println("Неизвестная страна");
+
 
             }
 

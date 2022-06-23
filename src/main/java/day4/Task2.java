@@ -17,6 +17,7 @@ public class Task2 {
         int max = 10000;
         int diff = max - min;
         int largestNum = 0;
+        int smallestNum = array[0];
 
         int countZero = 0;
         int sumZero = 0;
@@ -31,8 +32,6 @@ public class Task2 {
             System.out.print(randomArray + " ");
 
         }
-        int smallestNum = array[0];
-
 
         for (int x : array) {
 

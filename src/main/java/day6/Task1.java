@@ -9,10 +9,20 @@ package day6;
 public class Task1 {
     public static void main(String[] args) {
         Car car = new Car();
-        Motobrike motobrike = new Motobrike();
+        Motobrike motobrike = new Motobrike("Harley Davidson","red", 2020 );
+        motobrike.info();
+        int resultMoto = motobrike.yearDifference(2010);
+        motobrike.getInfo();
+        System.out.println("Что вернул метод у Мотоцикла = " + resultMoto);
 
-        car.setYearRelase(2019);
-        car.yearDifference(2022);
         car.info();
+        car.setModel("Audi");
+        car.setColor("white");
+        car.setYearRelase(2019);
+        car.getInfo();
+        int resultCar = car.yearDifference(1993);
+
+        System.out.println("Что вернул метод yearDifference у Авто = " + resultCar);
+
     }
 }

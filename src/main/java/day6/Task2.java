@@ -12,8 +12,10 @@ public class Task2 {
         airplane.setYear(2019);
         airplane.setLength(134.5);
         airplane.fillUp(7);
-        airplane.fillUp(3);
-        airplane.getFuel();
+        airplane.info();
+
+        airplane.fillUp(4);
         airplane.info();
     }
 }
+

@@ -6,7 +6,6 @@ public class Airplane {
     private double length;
     private double weight;
     private int fuel = 0;
-    private int refueling;
 
     public Airplane(String manufacturer, int year, double length, double weight) {
         this.manufacturer = manufacturer;
@@ -20,9 +19,8 @@ public class Airplane {
                 + "вес:" + weight + "," + "количество топлива в баке: " + fuel);
     }
 
-    public int  fillUp(int n){
+    public void   fillUp(int n){
          fuel += n;
-        return fuel;
 
     }
 
@@ -39,15 +37,7 @@ public class Airplane {
         this.length = length;
     }
 
-    public void setWeight(double weight) {
-        this.weight = weight;
-    }
-
-    public void setFuel(int fuel) {
-        this.fuel = fuel;
-    }
-
-    //Зачем геттер в этом методе? я его нигде не применила
+    //Вопрос 1 - Зачем геттер в этом методе? я его нигде не применила
     public int getFuel() {
         return fuel;
     }

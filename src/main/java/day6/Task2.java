@@ -14,7 +14,7 @@ public class Task2 {
         airplane.fillUp(7);
         airplane.info();
 
-        airplane.fillUp(4);
+        airplane.fillUp(10);
         airplane.info();
     }
 }

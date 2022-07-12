@@ -13,43 +13,32 @@ public class Teacher {
       int i = (int) ((Math.random() *4) + 2);
         System.out.println("счетчик " + i);
 
-      if (i == 2){
-          System.out.println("Преподаватель " + nameTeacher + " оценил студента с именем " + s.getNameStudent() +
-                  " по предмету " + subject + " на оценку " + "неудовлетворительно");
-      }else if (i ==3){
-          System.out.println("Преподаватель " + nameTeacher + " оценил студента с именем " + s.getNameStudent() +
-                  " по предмету " + subject + " на оценку " + "удовлетворительно");
-      }else if (i ==4){
-          System.out.println("Преподаватель " + nameTeacher + " оценил студента с именем " + s.getNameStudent() +
-                  " по предмету " + subject + " на оценку " + "хорошо");
-      }else if (i == 5){
-          System.out.println("Преподаватель " + nameTeacher + " оценил студента с именем " + s.getNameStudent() +
-                  " по предмету " + subject + " на оценку " + "отлично");
-      }
+        String estimation = "чему то";
 
+        switch (i){
+            case 2:
+            estimation = "неудовлетворительно";
+            break;
+            case 3:
+                estimation = "удовлетворительно";
+                break;
+            case 4:
+                estimation = "хорошо";
+                break;
+            case 5:
+                estimation = "отлично";
+                break;
+        }
+        System.out.println("Преподаватель " + nameTeacher + " оценил студента с именем " + s.getNameStudent() +
+                " по предмету " + subject + " на оценку " + estimation);
     }
-
-    public String getNameTeacher() {
-        return nameTeacher;
-    }
-
-    public void setNameTeacher(String nameTeacher) {
-        this.nameTeacher = nameTeacher;
-    }
-
-    public String getSubject() {
-        return subject;
-    }
-
-   // public void setSubject(String subject) {
-       // this.subject = subject;
-    //}
-
-
 }
-//Вопрос 1- так как в классе Преподаватель создается метод оценки, то нет необходимости создавать методы setSubject, getSubject,
-//setNameTeacher и getNameTeacher ? то что мы в этом классе обращаемся напрямую к полям nameTeacher и subject - это норм или надо
-//через сеттеры и геттер?
 
-//Вопрос 2 - я не поняла в чем плюсы метода evaluate, а точнее статьи Объекты как параметры методов.Чтобы не дублировать одинаковые методы
-// в разных классах, а с таким подходом мы можем в через мтеод обращаться к объекту другого класа?
+
+//Вопрос 1- переменную estimation нужно было инициилизировтаь, иначе не вывести в консоль. а почему так? нельзя просто обявить,
+// а потом то что в свфиче получим пусть то и присовится?
+
+//Вопрос - 2 - рандом работает странно - всегда первы делом выводит цифру 2,потом снова ее выводит и потом может остальные выводить.
+// я не так написала или это норм?
+
+//Вопрос 3 - в свиче более деликатно сомтрится, поэтому лучше так писать чем через if ?

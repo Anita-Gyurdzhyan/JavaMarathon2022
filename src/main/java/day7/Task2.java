@@ -12,26 +12,24 @@ public class Task2 {
     public static void main(String[] args) {
         Random random = new Random();
         int i = random.nextInt(11) + 90;
-        Player player1 = new Player(i, 6);
-        Player player2 = new Player(i, 9);
-        Player player3 = new Player(i, 3);
-        Player player4 = new Player(i, 15);
-        Player player5 = new Player(i, 2);
-        Player player6 = new Player(i, 1);
-        Player player7 = new Player(i, 4);
-        Player player8 = new Player(i, 5);
+        Player player1 = new Player(i);
+        Player player2 = new Player(i);
+        Player player3 = new Player(i);
+        Player player4 = new Player(i);
+        Player player5 = new Player(2);
+        Player player6 = new Player(7);
+        Player player7 = new Player(4);
+        Player player8 = new Player(5);
 
-       player2.run(6);
-        player2.getStamina();
-        System.out.println("Выносливость " + player2.getStamina());
+       player4.run();
+        System.out.println("Выносливость " + player4.getStamina());
 
         System.out.println("Количество игроков на поле " + Player.countPlayers);
         Player.info();
 
     }
 }
-//Вопрос 1 - как при создании объекта player1 и т д закинуть туда int i ? от рандома который .
-// я в классе Player указала i в конструткоре но все равно что то не то
+//Вопрос 1 - теперь в конструткоре Player только i есть. Теперь, чтобы применить к какому либо игроку метод run,
+// пока тот не выдохнется, мне надо как то с циклами поработать? или цикл внутр метода run надо заложить в классе Player ?
 
-// Вопрос 2 - эта строка  player2.run(9) - как сделать чтобы он подтягивал выносливостьто значение,
-// которое записано при создании объекта? то есть 9 число
+//Вопрос 2 - я у игрока 5 задала выносливость 2, почему при вызове метода run он уходит в -1 ?

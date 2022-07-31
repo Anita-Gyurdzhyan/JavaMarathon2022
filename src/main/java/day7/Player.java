@@ -3,14 +3,12 @@ package day7;
 public class Player {
     private int stamina;
 
-    private final static int MAX_STAMINA = 100;
-    private final static int MIN_STAMINA = 0;
+    public final static int MAX_STAMINA = 100;
+    public final static int MIN_STAMINA = 0;
 
     public static int countPlayers = 0;
-    //которое считает количество игроков на футбольном поле
-    // (изначально их 0, выходом на поле считается создание экземпляра класса, уходом - когда игрок устал
 
-    public Player(int i, int stamina) {
+    public Player(int i) {
         countPlayers++;
         if (countPlayers > 6){
            countPlayers = 6;
@@ -25,11 +23,12 @@ public class Player {
         return countPlayers;
     }
 
-    public int run(int stamina) {
-       return stamina--;
-
-            //run() - игрок бежит при вызове этого метода. Этот метод уменьшает выносливость игрока на 1 при однократном вызове.
-            // Когда выносливость достигает 0, игроку нужен отдых и он уходит с поля.
+    public void run() {
+         stamina--;
+        if (stamina == 0) {
+          countPlayers--;
+          stamina = Player.MIN_STAMINA;
+        }
     }
 
         public static void info () {
@@ -43,12 +42,7 @@ public class Player {
 
     }
 
-    //Вопрос 1 - как уйти с поля? уменьшить количество игороков, то есть блока кода
-// if (stamina == 0) {
-//            countPlayers--; - верный?
-
-//Вопрос 2 - не знаю как быть с методом run. Он должен на вход что то принимать? Не работает метод, что в нем сделать?
-
-//Вопрос 3 - для чего даны константы?
+    //Вопрос 1 - метод run переделала, но чтобы он не уменшал количество игроков при выносливости 0, надо переменную придумать
+//и сделать по аналогии с блоком кода  stamina = Player.MIN_STAMINA; ?
 
 

@@ -38,7 +38,6 @@ public class Task1 {
         long stopTime2 = System.currentTimeMillis(); //сохраняем время после того, как код отработал
         System.out.print("\n После завершения кода " + stopTime2);
         System.out.print("\n Длительность работы, в мс.: " +(stopTime2 - startTime2));
-        //
 
     }
 }

@@ -6,4 +6,3 @@ public interface Worker {
     public boolean bonus();
 
 }
-//

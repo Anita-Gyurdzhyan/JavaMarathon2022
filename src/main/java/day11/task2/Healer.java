@@ -1,7 +1,7 @@
 package day11.task2;
 
 public interface Healer {
-     int healHimself();
+     void healHimself();
 
-     int healTeammate(Hero hero);
+     void healTeammate(Hero hero);
 }

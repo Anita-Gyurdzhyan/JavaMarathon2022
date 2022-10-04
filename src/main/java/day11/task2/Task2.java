@@ -4,36 +4,40 @@ public class Task2 {
     public static void main(String[] args) {
         Warrior warrior = new Warrior();
         Paladin paladin = new Paladin();
+        Magician magician = new Magician();
+        Shaman shaman = new Shaman();
 
-        System.out.println(warrior.physicalAttack(paladin));
+        System.out.println("1 Воин атакует Паладина " + warrior.physicalAttack(paladin));
+        System.out.println(paladin);
+        System.out.println();
+
+        System.out.println("2 Паладин атакует Мага " + paladin.physicalAttack(magician));
+        System.out.println(magician);
+        System.out.println();
+
+        System.out.println("вот тут");
+        shaman.healTeammate(magician);
+        System.out.println(magician);
+        System.out.println();
+
+        System.out.println("4 Маг атакует Паладина, тип атаки М " + magician.magicalAttack(paladin));
         System.out.println(paladin);
 
+        System.out.println("5 Шаман атакует Воина, тип атаки Ф " + shaman.physicalAttack(warrior));
+        System.out.println(warrior);
 
+        //System.out.println("6 Паладин лечит себя " + paladin.healHimself());
+        System.out.println(paladin);
 
+        for (int i = 0; i < 4; i++) {
+            warrior.physicalAttack(magician);
+            System.out.println("7 Воин атакует мага 5 раз " + magician);
+        }
 
 
     }
 }
 /*
-________
- "Значения защиты в процентах, а другие параметры в единицах, т.е. атаковав воина типом Ф 10, он получит урон не 10,
-  а 2 ед. урона (10 - 10*0.8 = 2)".
-     Вопрос 1 - Цифры 10 откуда тут взялись в формуле?
-________
-"После того, как все классы будут реализованы, в методе main() класса Task2 последовательно выполните следующие действия,
-проверяя показатель здоровья у персонажа, на которого направлено действие:
-Воин атакует Паладина"
-    Вопрос 2 - когда кто-то кого-то атакует, он теряет здоровье? Предполагая это, я в классе Warrior
-  в методе physicalAttack написала так, но как когда 1 нападает на 2го , и надо учитывать не собственный показатель атаки,
-  а атаку врага?
-  _______
-    Вопрос 3 - мне это подсказали в чате формулу , верная подсказка?
-     Воин атакует Паладина:
-Результат в консоли:
-Paladin{health=85}
-У воина атака 30
-У паладина защита от физического урока 50%
-100-(30*50%) = 85
-
-
-*/
+ я неверно в классах герой переопределла toString ? у меня неверные расчеты кроме 1 пункта атаки
+ . И как получилась цифра 69 Paladin{health=69} в 4-й атаке?
+ */

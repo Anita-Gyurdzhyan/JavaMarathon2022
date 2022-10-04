@@ -1,11 +1,11 @@
 package day11.task2;
 
-public class Magician extends Hero implements  PhysAttack, MagicAttack{
+public class Magician extends Hero implements MagicAttack{
 
-    public  int magicAtt;// (величина магической атаки)
+    public  int magicAtt;
 
     public Magician(){
-
+        super();
         physAtt = 5;
         magicAtt = 20;
         physDef = 0;
@@ -15,16 +15,15 @@ public class Magician extends Hero implements  PhysAttack, MagicAttack{
 
     @Override
     public double magicalAttack(Hero hero) {
-        return 0; //я просто написала 0, пока в классе Warrior только написала как я думаю реализацию
+        double resultAttack = hero.magicDef * magicAtt;
+        return  hero.health - resultAttack;
 
     }
 
     @Override
-    public double physicalAttack(Hero hero) {
-
-        return 0;
+    public String toString() {
+        return "Magician{" +
+                "health=" + health +
+                '}';
     }
-
-
-
 }

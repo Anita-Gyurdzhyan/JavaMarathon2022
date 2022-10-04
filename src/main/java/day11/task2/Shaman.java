@@ -1,11 +1,11 @@
 package day11.task2;
 
-public class Shaman extends Hero implements Healer, PhysAttack, MagicAttack {
+public class Shaman extends Hero implements Healer,MagicAttack {
 
     public  int magicAtt;
 
     public Shaman(){
-
+        super();
         physAtt = 10;
         magicAtt = 15;
         physDef = 0.2;
@@ -13,26 +13,34 @@ public class Shaman extends Hero implements Healer, PhysAttack, MagicAttack {
 
     }
 
-    public int healHimself(){
-        return 50;
+    public void healHimself(){
+        health =  health + 50;
+        if (health > MAX_HEALTH) {
+            health = MAX_HEALTH;
+
+        }
     }
 
     @Override
-    public int healTeammate(Hero hero) {
-        return 30;
-    }
+    public void healTeammate(Hero hero) {
+        hero.health =  hero.health + 30;
+        if (hero.health > MAX_HEALTH) {
+            hero.health = MAX_HEALTH;
 
-
-    @Override
-    public double physicalAttack(Hero hero) {
-        return 0; // я просто написала 0, пока в классе Warrior только написала как я думаю реализацию
-
+        }
     }
 
     @Override
     public double magicalAttack(Hero hero) {
-        return 0; //я просто написала 0, пока в классе Warrior только написала как я думаю реализацию
+        double resultAttack = hero.magicDef * magicAtt;
+        return  hero.health - resultAttack;
 
     }
 
+    @Override
+    public String toString() {
+        return "Shaman{" +
+                "health=" + health +
+                '}';
+    }
 }

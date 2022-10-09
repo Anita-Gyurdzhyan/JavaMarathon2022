@@ -1,64 +1,76 @@
 package day12.task3;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
 public class Task3 {
     public static void main(String[] args) {
+        ArrayList<MusicBand> bands = new ArrayList<>();
+        //---- можно слово Array опутить и писать просто List<MusicBand> bands = new ArrayList<>(); ?
 
-        /*Так надо было создавать экземпляры класса?
-         или вот так List<MusicBand> bandList = new ArrayList<>();
-        bandList.add(new MusicBand(2018))?;
-        */
+        MusicBand five = new MusicBand("five", 1996);
+        // -----Я в первом коммите создавала так экземпляры класса :
+        //  MusicBand five = new MusicBand(1996); - но надо с именем в аргументах чтобы выводить их название?
 
-        MusicBand five = new MusicBand(1996);
-        MusicBand backStreetBoys = new MusicBand(1995);
-        MusicBand nSync = new MusicBand(1998);
-        MusicBand queen = new MusicBand(1980);
-        MusicBand theBeatles = new MusicBand(1960);
-        MusicBand handsUp = new MusicBand(2003);
-        MusicBand serebro = new MusicBand(2009);
-        MusicBand maroon5 = new MusicBand(2021);
-        MusicBand linkinPark = new MusicBand(2004);
-        MusicBand imagineDragons = new MusicBand(2021);
-        MusicBand gorillaz = new MusicBand(2010);
-
-
-        List<MusicBand> musicBandList = new ArrayList<>();
-        musicBandList.add(five);
-        musicBandList.add(backStreetBoys);
-        musicBandList.add(nSync);
-        musicBandList.add(queen);
-        musicBandList.add(theBeatles);
-        musicBandList.add(handsUp);
-        musicBandList.add(serebro);
-        musicBandList.add(maroon5);
-        musicBandList.add(linkinPark);
-        musicBandList.add(imagineDragons);
-        musicBandList.add(gorillaz);
-
-        musicBandList.toString();
-
-         //Воот так перемешивать? и как его вывести? про вывод также вопрос в методе мейн написан
-        Collections.shuffle(musicBandList);
+        MusicBand backStreetBoys = new MusicBand("backStreetBoys", 1995);
+        MusicBand nSync = new MusicBand("nSync", 1998);
+        MusicBand queen = new MusicBand("queen", 1980);
+        MusicBand theBeatles = new MusicBand("theBeatles", 1960);
+        MusicBand handsUp = new MusicBand("handsUp", 2003);
+        MusicBand serebro = new MusicBand("serebro", 2009);
+        MusicBand maroon5 = new MusicBand("maroon5", 2021);
+        MusicBand linkinPark = new MusicBand("linkinPark", 2004);
+        MusicBand imagineDragons = new MusicBand("imagineDragons", 2021);
+        MusicBand gorillaz = new MusicBand("gorillaz", 2010);
 
 
+        bands.add(five);
+        bands.add(backStreetBoys);
+        bands.add(nSync);
+        bands.add(queen);
+        bands.add(theBeatles);
+        bands.add(handsUp);
+        bands.add(serebro);
+        bands.add(maroon5);
+        bands.add(linkinPark);
+        bands.add(imagineDragons);
+        bands.add(gorillaz);
+
+        System.out.println(bands);
+
+        Collections.shuffle(bands);
+        System.out.println(bands);
+
+        groupsAfter2000(bands);
+        /* Методы, которые сами придумываем их пишут в формтае - Метод(вызываемый объект).
+        А те методы, которые встроены в джаве, то пишем через формат Объект. точка? например bands.add
+
+         */
     }
 
-    public static List<MusicBand> groupsAfter2000(List<MusicBand> musicBandList){
-        List<MusicBand> bandsAfter2000 = new ArrayList<>(Arrays.asList());
-        for (int i = 0; i < musicBandList.size(); i++) {
+    public static List<MusicBand> groupsAfter2000(List<MusicBand> bands) {
 
+        //---- А так можно писать без указания типа данных Листа? То есть почему в bands2 не надо указывать <MusicBand>?
+        List bands2 = new ArrayList<>();
+
+        for (int i = 0; i < bands.size(); i++) {
+
+            //  ---выводить в отдельную переменную или в данном случае можно оставлять магическое число 2000?
+            int year = 2000;
+
+            if (bands.get(i).getYear() > year) {
+                bands2.add(bands.get(i));
+
+            }
         }
-
-        return bandsAfter2000;
+        System.out.println("вторая группа" + bands2);
+        return bands2;
     }
 }
 
-/*
-Я новый список создала внутри метода groupsAfter2000,  так верно? и вообще новый список я верно написала?
-Как мне перебрать года у объектов MusicBand?
 
- */
+
+
+
+

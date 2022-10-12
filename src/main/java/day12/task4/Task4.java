@@ -2,6 +2,7 @@ package day12.task4;
 
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Task4 {
@@ -15,19 +16,17 @@ public class Task4 {
 
       membersA.add("Vera Voronina");
       membersA.add("Polona Gagarina");
-
       membersB.add("Stepa Niko");
 
-        System.out.println(groupA.getMembers());
-        System.out.println(groupB.getMembers());
+       groupA.printMembers();
+       groupB.printMembers();
+
+       MusicBand.transferMembers(groupA, groupB);
+        System.out.println("Вызвали метод перехода");
 
        groupA.printMembers();
+       groupB.printMembers();
     }
 
 }
 
-/*
-После того , как добавила второй список (membersB), он выводит список участников непонятно.
-Выводит одинаковые состав участников,  что в groupA, что в groupB. Почему так?
-
- */

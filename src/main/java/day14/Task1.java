@@ -7,16 +7,48 @@ import java.util.Scanner;
 
 public class Task1 {
     public static void main(String[] args) throws FileNotFoundException, ArrayIndexOutOfBoundsException {
-        File file = new File("Hometask1");
+        File file = new File("Hometask14");
         printSumDigits(file);
 
     }
 
-    public static void printSumDigits(File file) throws FileNotFoundException, ArrayIndexOutOfBoundsException {
-        Scanner scanner = new Scanner(file);
+    public static void printSumDigits(File file) {
+
 
         try {
-            scanner = new Scanner(file);
+            Scanner scanner = new Scanner(file);
+            String line = scanner.nextLine();
+            String[] numbersString = line.split(" ");
+            int[] numbers = new int[10];
+            int counter = 0;
+
+            int sum = 0;
+
+            for (String number : numbersString) {
+
+                numbers[counter++] = Integer.parseInt(number);
+
+
+            }
+
+            System.out.println(Arrays.toString(numbers));
+
+
+            for (int i = 0; i < numbers.length; i++) {
+                sum += numbers[i];
+
+            }
+            scanner.close();
+            /*1 -  в первом варианте решения этой таски ты сказал, что поток надо закрывать после завершения метода.
+             Но там он не знает переменную scanner. Если вынести строку Scanner scanner = new Scanner(file); до строчки с try, то
+             idea просит добавить в метод throws. Где тогда лучше закрывать поток в нынешнем варианте решения таски?
+
+             2- и отсюда второй вопрос, учитывая такой вид решения таски - если в самой сигнатуре метода printSumDigits(File file)
+             написать  throws FileNotFoundException, ArrayIndexOutOfBoundsException и при этом try писать,
+             то throws  в методе уже лишнее?
+            */
+
+            System.out.println("Сумма чисел " + sum);
         } catch (FileNotFoundException e) {
             System.out.println("Файл не найден");
 
@@ -25,36 +57,8 @@ public class Task1 {
         }
 
 
-        String line = scanner.nextLine();
-        String[] numbersString = line.split(" ");
-        int[] numbers = new int[10];
-        int counter = 0;
-
-        int sum = 0;
-
-        for (String number : numbersString) {
-
-            numbers[counter++] = Integer.parseInt(number);
-
-
-        }
-
-        System.out.println(Arrays.toString(numbers));
-        // 1- Надо закрывать поток после считывания файла или после завершения выполнения метода printSumDigits?
-        scanner.close();
-
-        for (int i = 0; i < numbers.length; i++) {
-            sum += numbers[i];
-
-        }
-        System.out.println("Сумма чисел " + sum);
-
-
     }
 
 }
 
-/*
-2 - Не работает ни одна обработка исключение, что не так? Обработать исключение надо было в самом методе или в мейне?
- */
 

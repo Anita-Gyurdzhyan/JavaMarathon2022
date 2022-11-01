@@ -8,25 +8,27 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Task2 {
+
+    final static int LIMIT = 19;
+
     public static void main(String[] args) {
         String separator = File.separator;
 
         String path1 = "C:" + separator + "repo" + separator + "JavaMarathon2022" + separator + "file1.txt";
-        String  path2 = "C:" + separator + "repo" + separator + "JavaMarathon2022" + separator + "file2.txt";
+        String path2 = "C:" + separator + "repo" + separator + "JavaMarathon2022" + separator + "file2.txt";
 
         File file1 = new File(path1);
         File file2 = new File(path2);
 
         Random random = new Random();
-        final int LIMIT = 19; //1 - Надо делать константу или в мейне не стоит?
+
 
         try {
             int[] arrayNum = new int[1000];
             PrintWriter pw1 = new PrintWriter(file1);
 
             for (int i = 0; i < arrayNum.length; i++) {
-                int num = random.nextInt(101);
-                arrayNum[i] = num;
+                arrayNum[i] = random.nextInt(101);
 
             }
             pw1.println(Arrays.toString(arrayNum));
@@ -48,21 +50,22 @@ public class Task2 {
                 sum += arrayNum[i];
                 count++;
 
-                if (i == numGroup){
+                if (i == numGroup) {
                     sumArithmetic = sum / count;
                     counter = i;
 
 
                     pw2.println(sumArithmetic);
-                    numGroup+=  count;
+                    numGroup += count;
                     sum = 0;
                     count = 0;
                     i = counter;
-                    //2 - Много получилось всяких переменных, есть более деликатный метод или так тоже норм?
+
                 }
             }
             pw2.close();
             scanner.close();
+
 
             printResult(file2);
 
@@ -73,25 +76,21 @@ public class Task2 {
     }
 
     public static void printResult(File file) throws FileNotFoundException {
-        String separator = File.separator;
-        String path2 = "C:" + separator + "repo" + separator + "JavaMarathon2022" + separator + "file2.txt";
-       File file2 = new File(path2);
-
-
         double d = 0;
+        int a = 0;
 
-        Scanner s = new Scanner(file2);
-       while (s.hasNextDouble()){
-           d = s.nextDouble();
+        Scanner s = new Scanner(file); //переименовал убрав двойку. Теперь в сканер будет передана ссылка на файл из аргументов метода
+        while (s.hasNextDouble()) {
+            d += s.nextDouble();
+            System.out.println("я читаю" + d);
+            // 1- он не считывает ничего, как быть? файл 2 создается
 
-       }
+        }
+        d = a;
+        //2 - если бы считал файл, то верно написан метод?
         s.close();
-        System.out.println("я из метода printResult " +d);
+        System.out.println("Вывожу, отбросив вещественную часть" + d);
 
-/* 3 - Я не знаю как делать в методе printResult чтение файла, который был создан в мейне. Здесь надо также обявлять путь к файлу?
-        вообщем, как делать?
-
- */
 
     }
 }

@@ -12,7 +12,7 @@ class Point {
         this.y = y;
     }
 
-    public int getX() {
+    public  int getX() {
         return x;
     }
 
@@ -36,5 +36,13 @@ class Point {
         int result = x;
         result = 31 * result + y;
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return "{" +
+                "x:" + x +
+                ", y:" + y +
+                '}';
     }
 }
